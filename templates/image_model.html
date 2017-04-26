@@ -55,6 +55,7 @@
   document.getElementById("backendframe").innerHTML = "Backend Framework: " + image_model.backend;
   var j=0;
   var k=0;
+  var layernum=0;
   var imagesource = '<img src="/static/img/leaf.jpg" class="img-rounded" style = "width: 40px; high: 40px">';
  for (items in image_model.config) {
     $('#narrow'+j).after('<div class="row" id="'+ j +'""></div>');
@@ -67,7 +68,8 @@
     $('#narrow'+j).append('<div class="col-xs-4"></div>');
     $('#narrow'+j).append('<div class="col-xs-4 text-center"><p class="btn"><a tabindex="0" role="button" class="glyphicon glyphicon-arrow-down" id="n'+j+'" data-toggle="popover" data-placement="top" data-trigger="focus" data-html="true" title="Link" data-content="Weight: "></a></p></div>');
     $('#narrow'+j).append('<div class="col-xs-4"></div>');
-    $('#n'+j).attr('data-content', '<img src="/static/img/leaf.jpg" class="img-rounded" style="width:40px;high:40px">');
+    $('#n'+j).attr('data-content', '<img src="/static/output/layer'+layernum+'.png" class="img-rounded" style="width:100px;high:100px">');
+    layernum = layernum+1;
  };
 
 
