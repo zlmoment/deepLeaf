@@ -2,24 +2,21 @@ from keras.layers import Input, Dense, Conv2D, MaxPooling2D, UpSampling2D
 from keras.models import Model
 from keras import backend as K
 from scipy.misc import imread, imresize
-
 from keras import regularizers
 
-encoding_dim =32;
-
 input_img = Input(shape =(28, 28,1))
-x=  Conv2D(16, (3, 3), activation='relu', padding='same')(input_img)
+x = Conv2D(16, (3, 3), activation='relu', padding='same')(input_img)
 x = MaxPooling2D((2, 2), padding='same')(x)
-x = Conv2D(8, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(16, (3, 3), activation='relu', padding='same')(x)
 x = MaxPooling2D((2, 2), padding='same')(x)
-x = Conv2D(8, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(16, (3, 3), activation='relu', padding='same')(x)
 encoded = MaxPooling2D((2, 2), padding='same')(x)
 
 # at this point the representation is (4, 4, 8) i.e. 128-dimensional
 
-x = Conv2D(8, (3, 3), activation='relu', padding='same')(encoded)
+x = Conv2D(16, (3, 3), activation='relu', padding='same')(encoded)
 x = UpSampling2D((2, 2))(x)
-x = Conv2D(8, (3, 3), activation='relu', padding='same')(x)
+x = Conv2D(16, (3, 3), activation='relu', padding='same')(x)
 x = UpSampling2D((2, 2))(x)
 x = Conv2D(16, (3, 3), activation='relu')(x)
 x = UpSampling2D((2, 2))(x)
@@ -57,7 +54,7 @@ print(x_test.shape)
 
 from keras.callbacks import TensorBoard
 
-autoencoder.fit(x_train, x_train, epochs=100, batch_size=256, shuffle=True,
+autoencoder.fit(x_train, x_train, epochs=400, batch_size=256, shuffle=True,
 validation_data=(x_test, x_test),
 callbacks=[TensorBoard(log_dir='/tmp/autoencoder')])
 
@@ -71,6 +68,7 @@ import matplotlib.pyplot as plt
 
 decoded_imgs = autoencoder.predict(x_test)
 
+#
 n = 10
 plt.figure(figsize=(20, 4))
 for i in range(n):
