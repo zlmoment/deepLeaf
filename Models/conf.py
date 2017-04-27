@@ -13,6 +13,6 @@ from keras.layers import Conv2D, MaxPooling2D
 import random
 from keras.preprocessing.image import ImageDataGenerator, NumpyArrayIterator, array_to_img
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 DATA_PATH = '/home/zhaoyu/Dropbox/AI-II-8750/Project/Data/'
 PROJECT_PATH = '/home/zhaoyu/Dropbox/AI-II-8750/Project/Code/deepLeaf/'
