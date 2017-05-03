@@ -37,6 +37,12 @@ def load_pre_extracted_features(standardize=False):
         # Standardize features by removing the mean and scaling to unit variance
         train_feat = StandardScaler().fit(train_feat).transform(train_feat)  # (990, 192)
         test_feat = StandardScaler().fit(test_feat).transform(test_feat)  # (594, 192)
+    else:
+        train_feat = train_feat.as_matrix()
+        test_feat = test_feat.as_matrix()
+
+    print('train_feat shape', train_feat.shape)
+    print('test_feat shape', test_feat.shape)
 
     return train_feat, test_feat
 

@@ -1,4 +1,4 @@
-# in this model, images are only resized directly
+# in this model, images are padded first, then resize
 # using cifar-10 model structure
 
 from conf import *
@@ -6,10 +6,10 @@ import data_reader as data_reader
 
 NB_EPOCHS = 200
 
-train_csv, test_csv = data_reader.load_csv()
+train_csv, test_csv = data_reader.load_csv() 
 
 # change data augmentation methods here
-images = data_reader.load_image_data_resize_directly()
+images = data_reader.load_image_data_padded_and_resize()
 # load train labels (one-hot encoding)
 train_labels_orig = data_reader.load_train_labels()
 
@@ -32,18 +32,6 @@ val_labels = train_labels_orig[val_indices, :]
 
 print('train_images shape', train_images.shape)
 print('val_images shape', val_images.shape)
-
-imgen = ImageDataGenerator(
-    featurewise_center=True,
-    featurewise_std_normalization=True,
-    zca_whitening=True,
-    rotation_range=90,
-    zoom_range=0.2,
-    fill_mode='nearest',
-    horizontal_flip=True,
-    vertical_flip=True)
-imgen.fit(train_images)
-imgen_flow = imgen.flow(train_images, train_labels, batch_size=16)
 
 img_model = Sequential()
 
@@ -74,28 +62,37 @@ img_model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accu
 img_model.count_params()
 img_model.summary()
 
-img_history = img_model.fit_generator(imgen_flow,
-                                      epochs=200,
-                                      validation_data=(val_images, val_labels),
-                                      steps_per_epoch=len(train_images)/16)
+img_history = img_model.fit(train_images, train_labels,
+                            batch_size=16,
+                            epochs=NB_EPOCHS,
+                            validation_data=(val_images, val_labels),
+                            shuffle=True)
 
-plt.plot(img_history.history['acc'])
-plt.xlabel('Iterations')
-plt.ylabel('Training Accuracy')
-plt.title('Training Accuracy')
-plt.show()
+# plt.plot(img_history.history['acc'])
+# plt.xlabel('Iterations')
+# plt.ylabel('Training Accuracy')
+# plt.title('Training Accuracy')
+# plt.show()
+#
+# plt.plot(img_history.history['val_acc'])
+# plt.xlabel('Iterations')
+# plt.ylabel('Validation Accuracy')
+# plt.title('Validation Accuracy')
+# plt.show()
 
-plt.plot(img_history.history['val_acc'])
-plt.xlabel('Iterations')
-plt.ylabel('Validation Accuracy')
-plt.title('Validation Accuracy')
-plt.show()
-
-plt.plot(img_history.history['acc'])
-plt.plot(img_history.history['val_acc'])
+# plt.plot(img_history.history['acc'])
+# plt.plot(img_history.history['val_acc'])
+# plt.xlabel('Iterations')
+# plt.ylabel('Accuracy')
+# plt.title('Training and Validation Accuracy')
+# plt.legend(['train', 'validation'], loc='upper left')
+# plt.show()
+fig, ax = plt.subplots( nrows=1, ncols=1 )  # create figure & 1 axis
+ax.plot(img_history.history['acc'])
+ax.plot(img_history.history['val_acc'])
 plt.xlabel('Iterations')
 plt.ylabel('Accuracy')
 plt.title('Training and Validation Accuracy')
 plt.legend(['train', 'validation'], loc='upper left')
-plt.show()
-
+fig.savefig('accuracy.png')   # save the figure to file
+plt.close(fig)
