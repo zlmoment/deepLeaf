@@ -62,19 +62,19 @@ for i in range(10):
 
     
     autoencoder.fit(train_images, train_images,
-                    epochs=50,
+                    epochs=5,
                     shuffle=True,
                     validation_data=(val_images, val_images))
 
     
 
     encoded_train_images = encoder.predict(train_images)
-
+    enc_val_feats        = encoder.predict(val_images) 
 
 ########
-    encoded_input = Input(shape=(64,64,16,))
-    flt           = Flatten()(encoded_input)
-    encoded_feat  = Dense(256, activation='sigmoid')(flt)
+    encoded_input  = Input(shape=(64,64,8,))
+    flt            = Flatten()(encoded_input)
+    encoded_feat   = Dense(256, activation='sigmoid')(flt)
 #####3      
 
 
@@ -112,7 +112,7 @@ for i in range(10):
     concat = Dense(256)(concat)
     output = Dense(99, activation='softmax')(concat)
 
-    complex_model = Model(inputs=[image_inputs, feat_input, input_img], outputs=output)
+    complex_model = Model(inputs=[image_inputs, feat_input, encoded_input], outputs=output)
 
     opt = keras.optimizers.adam(lr=0.0001, decay=1e-6)
     complex_model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
@@ -122,10 +122,10 @@ for i in range(10):
 
     callbacks = [EarlyStopping(monitor='val_acc', patience=20, mode='max'),]
 
-    history = complex_model.fit([train_images, train_feats], train_labels,
+    history = complex_model.fit([train_images, train_feats, encoded_train_images], train_labels,
                                 batch_size=16,
                                 epochs=NB_EPOCHS,
-                                validation_data=([val_images, val_feats], val_labels),
+                                validation_data=([val_images, val_feats, enc_val_feats], val_labels),
                                 shuffle=True,
                                 callbacks=callbacks)
     val_acc_list.append(history.history['val_acc'][-1])
