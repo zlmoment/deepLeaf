@@ -1,0 +1,531 @@
+{\rtf1\ansi\ansicpg936\cocoartf1504\cocoasubrtf820
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <script type="text/javascript">\
+        // 
+\f1 \'bb\'f9\'d3\'da\'d7\'bc\'b1\'b8\'ba\'c3\'b5\'c4
+\f0 dom
+\f1 \'a3\'ac\'b3\'f5\'ca\'bc\'bb\'af
+\f0 echarts
+\f1 \'ca\'b5\'c0\'fd
+\f0 \
+        var myChart = echarts.init(document.getElementById('visualization'));\
+\
+        // 
+\f1 \'d6\'b8\'b6\'a8\'cd\'bc\'b1\'ed\'b5\'c4\'c5\'e4\'d6\'c3\'cf\'ee\'ba\'cd\'ca\'fd\'be\'dd
+\f0 \
+        \
+var option = \{\
+    title: \{\
+        text: 'Image Model Network'\
+    \},\
+    tooltip: \{\
+        trigger: 'item',\
+        formatter: "\{b\}"\
+    \},\
+    series: [\{\
+        type: 'sankey',\
+        layout: 'none',\
+        data: [ \
+                \{\
+                "id": "0",\
+                "name": String(image_model.config[0].class_name),\
+                "value": "99",\
+                "type": "L1",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "1",\
+                "name": String(image_model.config[1].class_name),\
+                "value": "99",\
+                "type": "L2",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "2",\
+                "name": String(image_model.config[2].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "3",\
+                "name": String(image_model.config[3].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "4",\
+                "name": String(image_model.config[4].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "5",\
+                "name": String(image_model.config[5].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "6",\
+                "name": String(image_model.config[6].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "7",\
+                "name": String(image_model.config[7].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "8",\
+                "name": String(image_model.config[8].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "9",\
+                "name": String(image_model.config[9].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "10",\
+                "name": String(image_model.config[10].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "11",\
+                "name": String(image_model.config[11].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "12",\
+                "name": String(image_model.config[12].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "13",\
+                "name": String(image_model.config[13].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "14",\
+                "name": String(image_model.config[14].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "15",\
+                "name": String(image_model.config[15].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "16",\
+                "name": String(image_model.config[16].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "id": "17",\
+                "name": String(image_model.config[17].class_name),\
+                "value": "99",\
+                "type": "L3",\
+                "itemStyle": \{\
+                    "normal": \{\
+                        "color": "#D40404"\
+                    \}\
+                \},\
+                "label": \{\
+                    "normal": \{\
+                        "position": "L1"\
+                    \}\
+                \}\
+            \},\
+    ],\
+        links: [ \
+      \{\
+                "source": "0",\
+                "target": "1",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+      \{\
+                "source": "1",\
+                "target": "2",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "2",\
+                "target": "3",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "3",\
+                "target": "4",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "4",\
+                "target": "5",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "5",\
+                "target": "6",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "6",\
+                "target": "7",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "7",\
+                "target": "8",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "8",\
+                "target": "9",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "9",\
+                "target": "10",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "10",\
+                "target": "11",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "11",\
+                "target": "12",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "12",\
+                "target": "13",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "13",\
+                "target": "14",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "14",\
+                "target": "15",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "15",\
+                "target": "16",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+            \{\
+                "source": "16",\
+                "target": "17",\
+                "value": "5",\
+                "lineStyle": \{\
+                    "normal": \{\
+                        "color": "D40404",\
+                        "opacity": 0.05\
+                    \}\
+                \}\
+            \},\
+    ],\
+        itemStyle: \{\
+            normal: \{\
+                borderWidth: 1,\
+                borderColor: '#000'\
+            \}\
+        \},\
+        lineStyle: \{\
+            normal: \{\
+                curveness: 0.5\
+            \}\
+        \}\
+    \}]\
+\}\
+\
+\
+        // 
+\f1 \'ca\'b9\'d3\'c3\'b8\'d5\'d6\'b8\'b6\'a8\'b5\'c4\'c5\'e4\'d6\'c3\'cf\'ee\'ba\'cd\'ca\'fd\'be\'dd\'cf\'d4\'ca\'be\'cd\'bc\'b1\'ed\'a1\'a3
+\f0 \
+        myChart.setOption(option);\
+    </script>}
